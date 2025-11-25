@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int i, j;
+    char ch = 'A';
+    int rows;
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    for(i = 1; i <= rows; i++) {
+        // Print spaces before characters
+        for(j = 1; j <= rows - i; j++) {
+            printf(" ");
+        }
+
+        // Print characters
+        for(j = 1; j <= i; j++) {
+            printf("%c ", ch);
+            ch++;  // Move to next character
+            if(ch > 'Z') {  // Wrap around after 'Z'
+                ch = 'A';
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
