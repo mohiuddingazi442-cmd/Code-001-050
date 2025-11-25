@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, originalNum, remainder, n, count, sum;
+
+    printf("Armstrong numbers between 1 and 1000 are:\n");
+
+    for (num = 1; num <= 1000; num++) {
+        sum = 0;
+        originalNum = num;
+
+        // Count digits
+        n = num;
+        count = 0;
+        while (n != 0) {
+            n /= 10;
+            count++;
+        }
+
+        // Calculate sum of powers
+        n = num;
+        while (n != 0) {
+            remainder = n % 10;
+            sum += pow(remainder, count);
+            n /= 10;
+        }
+
+        if (sum == originalNum) {
+            printf("%d\n", originalNum);
+        }
+    }
+
+    return 0;
+}
