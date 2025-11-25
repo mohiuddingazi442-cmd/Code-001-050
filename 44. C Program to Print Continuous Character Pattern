@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, rows;
+    char ch = 'A';
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    for(i = 1; i <= rows; i++) {        // loop for each row
+        for(j = 1; j <= i; j++) {      // loop for each column in row
+            printf("%c ", ch);
+            ch++;                       // move to next character
+            if(ch > 'Z') {              // wrap around after Z
+                ch = 'A';
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
