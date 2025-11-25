@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, n, num = 1;
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++) {
+        // Print leading spaces for pyramid shape
+        for(j = 1; j <= n - i; j++) {
+            printf("  "); // two spaces for alignment
+        }
+
+        // Print numbers in Floyd's triangle
+        for(j = 1; j <= i; j++) {
+            printf("%d ", num);
+            num++;
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
