@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int low, high;
+
+    printf("Enter two numbers (intervals): ");
+    scanf("%d %d", &low, &high);
+
+    printf("Armstrong numbers between %d and %d are: ", low, high);
+
+    for (int num = low; num <= high; num++) {
+        int originalNum = num;
+        int result = 0, n = 0;
+
+        // Count digits
+        int temp = num;
+        while (temp != 0) {
+            temp /= 10;
+            n++;
+        }
+
+        // Check Armstrong
+        temp = num;
+        while (temp != 0) {
+            int digit = temp % 10;
+            result += pow(digit, n);
+            temp /= 10;
+        }
+
+        if (result == originalNum)
+            printf("%d ", originalNum);
+    }
+
+    return 0;
+}
