@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    int a = 0, b = 1, c;
+    int sum = 0;
+
+    for(int i = 1; i <= n; i++) {
+        if(i == 1)
+            c = a;      // F0
+        else if(i == 2)
+            c = b;      // F1
+        else {
+            c = a + b;  // next term
+            a = b;
+            b = c;
+        }
+
+        // Even index check (i starts from 1 → F0 is index 1? So adjust)
+        // Real Fibonacci index = i - 1
+        if((i - 1) % 2 == 0) {
+            sum += c;
+        }
+    }
+
+    printf("Sum of Fibonacci numbers at even indexes up to %d terms = %d\n", n, sum);
+
+    return 0;
+}
