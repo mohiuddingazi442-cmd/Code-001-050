@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int low, high, i, flag;
+
+    printf("Enter two numbers (intervals): ");
+    scanf("%d %d", &low, &high);
+
+    // Ensure low < high
+    if (low > high) {
+        int temp = low;
+        low = high;
+        high = temp;
+    }
+
+    printf("Prime numbers between %d and %d are: ", low, high);
+
+    for (i = low; i <= high; i++) {
+        if (i <= 1)
+            continue;
+
+        flag = 1; // assume prime
+
+        for (int j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                flag = 0;
+                break;
+            }
+        }
+
+        if (flag == 1)
+            printf("%d ", i);
+    }
+
+    return 0;
+}
